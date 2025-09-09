@@ -13,6 +13,12 @@
 	},
 	"env": {
 		"stage": {
+			"routes": [
+				{
+					"custom_domain": true,
+					"pattern": "go-stage.theringer.tech",
+				}
+			],
 			"d1_databases": [
 				{
 					"binding": "DB",
@@ -87,6 +93,12 @@
 			]
 		},
 		"production": {
+			"routes": [
+				{
+					"custom_domain": true,
+					"pattern": "go-prod.theringer.tech",
+				}
+			],
 			"d1_databases": [
 				{
 					"binding": "DB",

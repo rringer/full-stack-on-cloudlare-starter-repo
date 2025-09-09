@@ -11,12 +11,24 @@
   "assets": {
     "binding": "ASSETS",
     "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/auth*", "/trpc*", "/click-socket"]
   },
   "observability": {
     "enabled": true,
   },
   "env": {
     "stage": {
+      "vars": {
+        "STRIPE_PRODUCT_BASIC": "price_1S4S1sPo0S91W8mPiGQtKecK",
+        "STRIPE_PRODUCT_PRO": "price_1S4S3YPo0S91W8mPb2OABcaI",
+        "STRIPE_PRODUCT_ENTERPRISE": "price_1S4S4OPo0S91W8mP7gnwzZDV"
+      },
+      "routes": [
+        {
+          "custom_domain": true,
+          "pattern": "stage.theringer.tech",
+        }
+      ],
       "d1_databases": [
         {
           "binding": "DB",
@@ -33,6 +45,12 @@
       ]
     },
     "production": {
+      "routes": [
+        {
+          "custom_domain": true,
+          "pattern": "test-prod.theringer.tech",
+        }
+      ],
       "d1_databases": [
         {
           "binding": "DB",
